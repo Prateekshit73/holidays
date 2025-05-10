@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: Open World Holidays Framework
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Arkadii
+    family-names: Yakovets
+  - given-names: Panpakorn
+    family-names: Siripanich
+  - given-names: Serhii
+    family-names: Murza
+doi: 10.5281/zenodo.15206391
+repository-code: 'https://github.com/vacanza/holidays'
+abstract: >-
+  Description - Test upload action
+keywords:
+  - holidays
+  - calendar
+  - l10n
+  - worldwide
+  - vacation
+license: MIT
+version: v0.70
+date-released: '2025-04-07'
