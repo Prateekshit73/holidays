@@ -1,0 +1,24 @@
+# Project-specific terms
+Vacanza
+holidays
+l10n
+i18n
+datetime
+timezone
+pytz
+dateutil
+API
+CLI
+JSON
+YAML
+GitHub
+PyPI
+CI/CD
+pre-commit
+subdiv
+DOI
+coa
+Rica
+cnr
+tvl
+tkl

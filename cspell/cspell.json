@@ -1,0 +1,71 @@
+{
+  "allowCompoundWords": false,
+  "caseSensitive": false,
+  "language": "en",
+  "minWordLength": 3,
+  "dictionaryDefinitions": [
+    {
+      "addWords": true,
+      "name": "custom-dict",
+      "path": "custom-dict.txt"
+    }
+  ],
+  "dictionaries": [
+    "en_US",
+    "en-gb",
+    "softwareTerms",
+    "python",
+    "filetypes",
+    "cpp",
+    "csharp",
+    "css",
+    "html",
+    "java",
+    "node",
+    "npm",
+    "php",
+    "powershell",
+    "rust",
+    "scala",
+    "swift",
+    "typescript",
+    "aws",
+    "docker",
+    "git",
+    "shell",
+    "sql",
+    "custom-dict"
+  ],
+  "enabled": true,
+  "files": ["**/*"],
+  "ignorePaths": [
+    "node_modules/**",
+    ".git/**",
+    ".venv/**",
+    "__pycache__/**",
+    "*.pyc",
+    "dist/**",
+    "build/**",
+    ".mypy_cache/**",
+    ".pytest_cache/**",
+    "docs/_build/**",
+    "snapshots/**",
+    "*.egg-info/**",
+    ".tox/**",
+    "requirements/*.txt",
+    "cspell/dictionaries/**"
+  ],
+  "ignoreRegExpList": [
+    "#\\w+",
+    "<@\\w+>",
+    "/\\b[A-Z]{2,}\\b/g",
+    "/\\b[A-Z][a-z]+\\s+[A-Z][a-z]+\\b/g",
+    "/\\b\\d+\\b/g",
+    "/\\b[A-Za-z]+_[A-Za-z]+\\b/g",
+    "/\\bhttps?:\\/\\/[^\\s]+\\b/g",
+    "/\\b[A-Za-z]+\\.[A-Za-z]+\\b/g",
+    "/\\b[A-Z]{3,}\\b/g"
+  ],
+
+  "useGitignore": true
+}

@@ -7,6 +7,8 @@ help:
 	@echo "    package       build package distribution"
 	@echo "    pre-commit    run pre-commit against all files"
 	@echo "    setup         setup development environment"
+	@echo "    spellcheck    run spell check on all files"
+	@echo "    spellfix      auto-fix spelling issues where possible"
 	@echo "    test          run tests (in parallel)"
 	@echo "    tox           run tox (in parallel)"
 
@@ -15,6 +17,12 @@ check:
 	make pre-commit
 	make doc
 	make test
+
+spellcheck:
+	cspell --config cspell/cspell.json "**/*"
+
+spellfix:
+	cspell --config cspell/cspell.json "**/*" --fix
 
 clean:
 	@for ext in mo pot pyc; do \
