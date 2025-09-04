@@ -1,3 +1,7 @@
+# Resolve repo root regardless of where make is invoked from
+MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+REPO_ROOT    := $(abspath $(MAKEFILE_DIR)/..)
+
 .PHONY: help check fix docker-build docker-check
 
 help:
@@ -8,13 +12,14 @@ help:
 	@echo "  docker-check - Run spell check using Docker"
 
 check:
-	cspell --config cspell.json "**/*"
+	npx cspell --config cspell.json "**/*"
 
 fix:
-	cspell --config cspell.json "**/*" --fix
+	npx cspell --config cspell.json "**/*" --fix
 
 docker-build:
 	docker build -t holidays-cspell .
 
 docker-check:
-	docker run --rm -v $(PWD)/../:/app holidays-cspell cspell "**/*"
+	docker run --rm -v $(REPO_ROOT):/app -w /app holidays-cspell \
+	  cspell --config cspell/cspell.json "**/*"
