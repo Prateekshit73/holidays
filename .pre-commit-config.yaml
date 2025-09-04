@@ -69,10 +69,11 @@ repos:
     hooks:
       - id: cspell
         name: cspell
-        entry: npx cspell --config ./cspell/cspell.json
-        language: system
-        files: \.(py|md|rst|txt|yml|yaml)$
-        exclude: ^(docs/_build|node_modules|\.venv|__pycache__|dist|build|\.mypy_cache|\.pytest_cache|\.egg-info|\.tox|snapshots)/
+        entry: cspell --config ./cspell/cspell.json
+        files: \.(py|md|rst|txt|yml|yaml|po|ini|cfg|conf|env|toml|json|properties|xml)$
+        language: node
+        additional_dependencies: ["cspell@8.19.4"]
+        exclude: ^(docs/_build|node_modules|\.venv|__pycache__|dist|build|\.mypy_cache|\.pytest_cache|\.egg-info|\.tox|snapshots)/$
 
   - repo: local
     hooks:

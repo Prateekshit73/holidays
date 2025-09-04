@@ -17,6 +17,10 @@ GoTo :Help
     Call :Test
     Exit /B
 
+:Spellcheck
+    npx cspell --config cspell.config.yaml "**/*"
+    Exit /B
+
 :Clean
     Del /S /Q *.mo
     Del /S /Q *.pyc
@@ -32,6 +36,7 @@ GoTo :Help
 :Help
     Echo Usage: make ^<Target^>
     Echo     check         run pre-commit and tests
+    Echo     spellcheck    run spell check on all files
     Echo     doc           run documentation build process
     Echo     help          show summary of available commands
     Echo     l10n          update .pot and .po files

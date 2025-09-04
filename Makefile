@@ -1,3 +1,5 @@
+.PHONY: spellcheck spellfix
+
 help:
 	@echo "Usage: make <target>"
 	@echo "    check         run pre-commit and tests"
@@ -19,10 +21,10 @@ check:
 	make test
 
 spellcheck:
-	cspell --config cspell/cspell.json "**/*"
+	npx cspell --config cspell/cspell.json "**/*"
 
 spellfix:
-	cspell --config cspell/cspell.json "**/*" --fix
+	npx cspell --config cspell/cspell.json "**/*" --fix
 
 clean:
 	@for ext in mo pot pyc; do \
