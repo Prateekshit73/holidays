@@ -14,11 +14,12 @@ GoTo :Help
     Call :L10n
     Call :Pre-commit
     Call :Doc
+    Call :Spellcheck
     Call :Test
     Exit /B
 
 :Spellcheck
-    npx cspell --config cspell.config.yaml "**/*"
+    make cspell-check
     Exit /B
 
 :Clean
@@ -48,6 +49,7 @@ GoTo :Help
     Exit /B
 
 :L10n
+    Del /S /Q *.pot
     python scripts\l10n\generate_po_files.py 2>nul >nul
     python scripts\l10n\generate_mo_files.py
     Exit /B

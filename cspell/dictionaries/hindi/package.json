@@ -1,0 +1,36 @@
+{
+  "name": "@cspell/dict-hi",
+  "version": "1.0.0",
+  "description": "Hindi dictionary for cspell",
+  "main": "cspell-ext.json",
+  "exports": {
+    ".": "./cspell-ext.json",
+    "./cspell": "./cspell-ext.json",
+    "./cspell-ext.json": "./cspell-ext.json"
+  },
+  "files": [
+    "hi.txt",
+    "cspell-ext.json"
+  ],
+  "scripts": {
+    "test": "cspell test hi.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vacanza/holidays.git",
+    "directory": "cspell/dictionaries/hindi"
+  },
+  "keywords": [
+    "cspell",
+    "cspell-ext",
+    "dictionary",
+    "hindi",
+    "hi"
+  ],
+  "author": "Holidays Project",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vacanza/holidays/issues"
+  },
+  "homepage": "https://github.com/vacanza/holidays#readme"
+}
