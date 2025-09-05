@@ -1,4 +1,6 @@
-.PHONY: spellcheck spellfix
+include cspell/Makefile
+
+.PHONY: spellcheck
 
 help:
 	@echo "Usage: make <target>"
@@ -10,7 +12,6 @@ help:
 	@echo "    pre-commit    run pre-commit against all files"
 	@echo "    setup         setup development environment"
 	@echo "    spellcheck    run spell check on all files"
-	@echo "    spellfix      auto-fix spelling issues where possible"
 	@echo "    test          run tests (in parallel)"
 	@echo "    tox           run tox (in parallel)"
 
@@ -18,13 +19,11 @@ check:
 	make l10n
 	make pre-commit
 	make doc
+	make spellcheck
 	make test
 
 spellcheck:
-	npx cspell --config cspell/cspell.json "**/*"
-
-spellfix:
-	npx cspell --config cspell/cspell.json "**/*" --fix
+	make cspell-check
 
 clean:
 	@for ext in mo pot pyc; do \

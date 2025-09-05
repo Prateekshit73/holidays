@@ -28,3 +28,6 @@ TKL
 tvl
 TVL
 timezone
+ical
+holidaysum
+ics

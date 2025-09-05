@@ -1,25 +1,17 @@
-# Resolve repo root regardless of where make is invoked from
-MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-REPO_ROOT    := $(abspath $(MAKEFILE_DIR)/..)
+.PHONY: cspell-install cspell-check cspell-run
 
-.PHONY: help check fix docker-build docker-check
+cspell-install:
+	@DOCKER_BUILDKIT=1 docker build \
+	--no-cache \
+	-f cspell/Dockerfile \
+	. \
+	-t cspell
 
-help:
-	@echo "Available commands:"
-	@echo "  check        - Run spell check on all files"
-	@echo "  fix          - Auto-fix spelling issues where possible"
-	@echo "  docker-build - Build Docker image for spell checking"
-	@echo "  docker-check - Run spell check using Docker"
+cspell-check: CMD="--no-progress -r /holidays"
+cspell-check: cspell-install cspell-run
 
-check:
-	npx cspell --config cspell.json "**/*"
-
-fix:
-	npx cspell --config cspell.json "**/*" --fix
-
-docker-build:
-	docker build -t holidays-cspell .
-
-docker-check:
-	docker run --rm -v $(REPO_ROOT):/app -w /app holidays-cspell \
-	  cspell --config cspell/cspell.json "**/*"
+cspell-run:
+	@docker run \
+	--mount type=bind,src="$(CURDIR)",dst=/holidays \
+	--rm \
+	cspell -c cspell/cspell.json "$(CMD)"
