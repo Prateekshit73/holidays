@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package.json and package-lock.json to install dependencies
 COPY package.json package-lock.json ./
 
-# Install cspell and dictionaries locally
-RUN npm install --no-audit --no-fund && npm cache clean --force
+# Install cspell and dictionaries locally using npm ci with security flags
+RUN npm ci --ignore-scripts --no-audit --no-fund && npm cache clean --force
 
 # Set working directory for the application
 WORKDIR /holidays

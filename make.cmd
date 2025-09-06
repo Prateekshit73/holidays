@@ -19,8 +19,8 @@ GoTo :Help
     Exit /B
 
 :Spellcheck
-    make cspell-check
-    Exit /B
+    make.exe -f Makefile cspell-check
+    Exit /B %ERRORLEVEL%
 
 :Clean
     Del /S /Q *.mo
@@ -37,7 +37,7 @@ GoTo :Help
 :Help
     Echo Usage: make ^<Target^>
     Echo     check         run pre-commit and tests
-    Echo     spellcheck    run spell check on all files
+    Echo     spellcheck    run spell check on localization and documentation files
     Echo     doc           run documentation build process
     Echo     help          show summary of available commands
     Echo     l10n          update .pot and .po files
